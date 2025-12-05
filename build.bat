@@ -29,3 +29,4 @@ if %errorlevel% neq 0 (
 
 echo Build completed successfully
 endlocal
+pause
