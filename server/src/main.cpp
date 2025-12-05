@@ -1,6 +1,16 @@
-#include <iostream> // Includes the input/output stream library
+#include "window/window.h"
 
-int main() { // The main function, where program execution begins
-    std::cout << "Hello World!" << std::endl; // Prints "Hello World!" to the console
-    return 0; // Indicates successful program execution
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+                     PWSTR pCmdLine, int nCmdShow)
+{
+    ProtoXEF::Window window(L"ProtoXEF Server", 800, 600);
+
+    if (!window.Create(hInstance))
+    {
+        return -1;
+    }
+
+    window.Show(nCmdShow);
+
+    return window.MessageLoop();
 }
