@@ -1,0 +1,25 @@
+{
+    "C_Cpp.intelliSenseEngine": "disabled",
+
+    "clangd.path": "clangd",
+    "clangd.arguments": [
+        "--compile-commands-dir=build",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=never"
+    ],
+
+    "[cpp]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+
+    "[c]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+
+    "editor.defaultFormatter": null
+}

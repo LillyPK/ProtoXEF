@@ -28,12 +28,10 @@ public:
     HWND GetHandle() const { return m_hwnd; }
 
 protected:
-    // High-level event hooks
     virtual void OnResize(int width, int height) {}
     virtual void Draw(HDC dc, const RECT& area) {}
     virtual void OnDestroy() {}
 
-    // Low-level hook for any message you want to intercept
     virtual bool HandleCustomMessage(UINT msg, WPARAM w, LPARAM l, LRESULT& result) {
         return false;
     }
@@ -42,7 +40,6 @@ protected:
 
 private:
     static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM w, LPARAM l);
-
     LRESULT HandleMessage(UINT msg, WPARAM w, LPARAM l);
 
     Config m_cfg;
