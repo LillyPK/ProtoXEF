@@ -9,7 +9,7 @@ constexpr int IDC_TOGGLE = 1001;
 class ClientWindow : public Window {
 public:
     ClientWindow()
-        : Window({ L"ProtoXEF Client Login", 520, 380 })
+        : Window({ L"ProtoXEF Client Login", 540, 400 })
     {}
 
 protected:
