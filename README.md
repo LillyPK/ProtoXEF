@@ -2,7 +2,7 @@
 remote window software
 
 ## Current Status
-**Early Development** - Contains a basic project structure with CMake build system and placeholder files.
+**Early Development** - Contains a basic project structure with CMake build system and a functional Win32 UI framework.
 
 ## Planned Features
 ### Core Technology
