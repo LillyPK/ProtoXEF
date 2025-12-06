@@ -1,11 +1,13 @@
 #include "window/window.hpp"
+#include "window/styling.hpp"
+#include "window/darkmode.hpp"
 
 namespace ProtoXEF {
 
 const wchar_t* Window::CLASS_NAME = L"ProtoXEF_Window_Class";
 
 Window::Window(const Config& cfg)
-    : m_cfg(cfg)
+    : m_cfg(cfg), m_darkMode(IsSystemDarkMode())
 {
 }
 
@@ -43,6 +45,10 @@ bool Window::Create(HINSTANCE hInstance) {
         hInstance,
         this
     );
+
+    if (m_hwnd && m_cfg.enableModernStyling) {
+        ApplyModernStyling(m_hwnd, m_darkMode);
+    }
 
     return m_hwnd != nullptr;
 }

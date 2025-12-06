@@ -16,6 +16,7 @@ public:
         int width;
         int height;
         DWORD style = WS_OVERLAPPEDWINDOW;
+        bool enableModernStyling = true;  // Enable modern Windows 11 effects
     };
 
     Window(const Config& cfg);
@@ -36,7 +37,11 @@ protected:
         return false;
     }
 
+    // Called after window is created - override to apply custom styling
+    virtual void OnWindowCreated() {}
+
     HWND m_hwnd = nullptr;
+    bool m_darkMode = false;
 
 private:
     static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM w, LPARAM l);

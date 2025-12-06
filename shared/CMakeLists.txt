@@ -4,17 +4,25 @@ project(ProtoXEF_Shared CXX)
 set(SHARED_SRC
     utils/example.cpp
     protocol/message.cpp
-    window/window.cpp  # Add window creation code here
+    window/window.cpp
 )
 
-add_library(protoxef_shared ${SHARED_SRC})
+set(SHARED_HEADERS
+    window/window.hpp
+    window/darkmode.hpp
+)
+
+add_library(protoxef_shared ${SHARED_SRC} ${SHARED_HEADERS})
 
 # Public include directories so client and server can access them
 target_include_directories(protoxef_shared PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Link against Windows libraries needed for Win32 API
 target_link_libraries(protoxef_shared PUBLIC
-    user32      # For window creation and message handling
-    gdi32       # For graphics device interface
-    kernel32    # For core Windows functions
+    user32
+    gdi32
+    kernel32
+    advapi32
+    uxtheme    # <-- Just add this line
+    dwmapi     # <-- And this for DWM effects
 )
